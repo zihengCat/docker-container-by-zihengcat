@@ -1,6 +1,6 @@
 sudo docker run -d -i -t \
                 --env LC_ALL=en_US.UTF-8 \
-                --name firestone_redis_cluster \
+                --name redis_cluster \
                 -p 0.0.0.0:7000:7000 \
                 -p 0.0.0.0:17000:17000 \
                 -p 0.0.0.0:7001:7001 \
