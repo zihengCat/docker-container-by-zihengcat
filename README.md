@@ -6,4 +6,5 @@ Some `Dockerfile` projects written by zihengCat.
 
 - Docker Redis Nodes
 - Docker Redis Cluster
+- Docker Jenkins
 
