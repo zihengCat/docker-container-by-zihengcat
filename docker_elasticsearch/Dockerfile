@@ -26,10 +26,9 @@ ENV        PKG_MIRROR_URL="https://artifacts.elastic.co/downloads/elasticsearch/
 RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            echo "Asia/Shanghai" > /etc/timezone && \
            yum -y install ${PKG_BASE_DEPS} && \
-           useradd "elastic" && su "elastic" && \
+           useradd "elastic" && su "elastic" && cd && \
            curl -o "elasticsearch-6.5.3.tar.gz" ${PKG_MIRROR_URL} && \
-           tar -xvz -f "elasticsearch-6.5.3.tar.gz" && \
-           rm -rf "elasticsearch-6.5.3.tar.gz"
+           tar -xvz -f "elasticsearch-6.5.3.tar.gz"
 # ===============================
 WORKDIR    /home/elastic/
 # ===============================
