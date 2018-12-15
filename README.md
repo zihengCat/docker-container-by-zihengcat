@@ -4,13 +4,17 @@ Some `Dockerfile` projects written by zihengCat.
 
 # `Dockerfile` Projects
 
-- Docker Jenkins
-
-> https://github.com/jenkinsci/jenkins
-
 - Docker ElasticSearch
 
 > https://github.com/elastic/elasticsearch
+
+- Docker Kibana
+
+> https://github.com/elastic/kibana
+
+- Docker Jenkins
+
+> https://github.com/jenkinsci/jenkins
 
 - Docker Redis Nodes
 
