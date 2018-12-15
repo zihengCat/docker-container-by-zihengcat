@@ -30,6 +30,7 @@ RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            curl -o "elasticsearch-6.5.3.tar.gz" ${PKG_MIRROR_URL} && \
            tar -xvz -f "elasticsearch-6.5.3.tar.gz"
 # ===============================
+USER       elastic
 WORKDIR    /home/elastic/
 # ===============================
 # EOF
