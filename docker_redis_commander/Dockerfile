@@ -1,8 +1,6 @@
-# ----------------------------
-# `Dockerfile_redis_commander`
-# ----------------------------
-#  >> written by `zihengCat`.
-# ----------------------------
+# ----------------------------------------------------
+# `Dockerfile_Redis_Commander` written by `zihengCat`.
+# ----------------------------------------------------
 # =============================
 # Using Base OS CentOS 7 Latest
 # =============================
@@ -19,19 +17,23 @@ ENV        LANG     en_US.UTF-8
 ENV        LANGUAGE en_US.UTF-8
 ENV        LC_ALL   en_US.UTF-8
 # ----------------------------------
-ENV 	   NPM_MIRROR_URL="https://registry.npm.taobao.org"
+ENV 	   NPM_MIRROR_URL="https://registry.npm.taobao.org/"
 # =====================================================
-# 1. Install EPEL Yum Repo
-# 2. Install `Node.js` from EPEL Yum Repo
-# 3. Install `redis-commander` from NPM
-# 4. Copy `redis-commander` Configurations to Container
+# 1. Setting TimeZone
+# 2. Install EPEL Yum Repo
+# 3. Install `Node.js` from EPEL Yum Repo
+# 4. Install `redis-commander` from NPM Repo
+# 5. Copy `redis-commander` Configurations to Container
 # =====================================================
-RUN        yum -y install "epel-release" && \
+RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
+           echo "Asia/Shanghai" > /etc/timezone && \
+           yum -y install "epel-release" && \
            yum -y install "nodejs" && \
            cd "/root/" && \
            npm --registry ${NPM_MIRROR_URL} \
                  install  "redis-commander"
-#COPY
+# ----------------------------------
+COPY       start.sh /root/
 # ===============================
 WORKDIR    /root/
 # ===============================
