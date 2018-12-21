@@ -17,10 +17,14 @@ ENV        LC_ALL   en_US.UTF-8
 ENV        PKG_BASE_DEPS="epel-release \
                           make gcc gcc-c++ \
                           jemalloc-devel"
-# ----------------------------------
-ENV        REDIS_PKG_PATH="/root/redis-5.0.2.tar.gz"
-ENV        REDIS_PKG_ROOT="/root/redis-5.0.2/"
-ENV        REDIS_PKG_URL="http://download.redis.io/releases/redis-5.0.2.tar.gz"
+# =====================================
+# Download latest Redis Release Package
+# >> https://redis.io/
+# =====================================
+ENV        REDIS_PKG_PATH="/root/redis-5.0.3.tar.gz"
+ENV        REDIS_PKG_ROOT="/root/redis-5.0.3/"
+ENV        REDIS_PKG_INSTALLED="/opt/redis_5.0.3/"
+ENV        REDIS_PKG_URL="http://download.redis.io/releases/redis-5.0.3.tar.gz"
 # ==================================
 RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            echo "Asia/Shanghai" > /etc/timezone && \
@@ -31,9 +35,10 @@ RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            tar -xvz -f ${REDIS_PKG_PATH} && \
            cd ${REDIS_PKG_ROOT} && \
            make && \
-           cp -r ${REDIS_PKG_ROOT} /opt/redis_5.0.2/ && \
+           cp -r ${REDIS_PKG_ROOT} ${REDIS_PKG_INSTALLED} && \
            rm -rf ${REDIS_PKG_ROOT} ${REDIS_PKG_PATH} && \
-           yum -y autoremove ${PKG_BASE_DEPS}
+           yum -y autoremove ${PKG_BASE_DEPS} && \
+           yum clean all
 # ===============================
 WORKDIR    /root/
 # ===============================
