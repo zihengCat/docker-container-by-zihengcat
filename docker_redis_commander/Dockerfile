@@ -18,6 +18,7 @@ ENV        LANGUAGE en_US.UTF-8
 ENV        LC_ALL   en_US.UTF-8
 # ----------------------------------
 ENV 	   NPM_MIRROR_URL="https://registry.npm.taobao.org/"
+ENV 	   CONFIG_FILE="start.sh"
 # =====================================================
 # 1. Setting TimeZone
 # 2. Install EPEL Yum Repo
@@ -31,9 +32,10 @@ RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            yum -y install "nodejs" && \
            cd "/root/" && \
            npm --registry ${NPM_MIRROR_URL} \
-                 install  "redis-commander"
+                 install  "redis-commander" && \
+           yum clean all
 # ----------------------------------
-COPY       start.sh /root/
+COPY       ${CONFIG_FILE} /root/
 # ===============================
 WORKDIR    /root/
 # ===============================
