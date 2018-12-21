@@ -25,6 +25,12 @@ ENV 	   CONFIG_FILE="start.sh"
 # 3. Install `Node.js` from EPEL Yum Repo
 # 4. Install `redis-commander` from NPM Repo
 # 5. Copy `redis-commander` Configurations to Container
+# 6. Clean Caches
+# =====================================================
+# ** NOTE **
+# -----------------------------------------------------
+# Using `redis-commander@0.4.5`
+# rather than the latest version.
 # =====================================================
 RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            echo "Asia/Shanghai" > /etc/timezone && \
@@ -32,8 +38,9 @@ RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            yum -y install "nodejs" && \
            cd "/root/" && \
            npm --registry ${NPM_MIRROR_URL} \
-                 install  "redis-commander" && \
-           yum clean all
+                 install "redis-commander@0.4.5" && \
+           yum clean all && \
+           npm cache clean
 # ----------------------------------
 COPY       ${CONFIG_FILE} /root/
 # ===============================
