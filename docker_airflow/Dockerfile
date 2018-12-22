@@ -25,17 +25,18 @@ ENV        LC_ALL   en_US.UTF-8
 ENV        PKG_BASE_DEPS="epel-release \
                           python36 python36-devel \
                           mariadb mariadb-libs mariadb-server mariadb-devel \
+                          redis \
                           gcc gcc-c++ \
                           git openssh-clients sshpass"
 # ----------------------------------
+#ENV        PKG_AIRFLOW="apache-airflow[crypto,password,mysql,redis,celery]==1.9.0"
 #ENV        PIP_MIRROR_URL="https://mirrors.aliyun.com/pypi/simple/"
-#ENV        PKG_AIRFLOW="apache-airflow[crypto,password,mysql,redis]==1.9.0"
-# =========================================================
+# ================================================================
 # 1. Setting TimeZone
-# 2. Install Python 3.6.6, MadiaDB 5.5.60, GCC 4.8.5
-# 4. Install `apache-airflow==1.9.0`
+# 2. Install Python 3.6.6, MariaDB 5.5.60, Redis 3.2.12, GCC 4.8.5
+# 4. Install `apache-airflow[*]==1.9.0`
 # 3. Clean Caches
-# =========================================================
+# ================================================================
 RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            echo "Asia/Shanghai" > /etc/timezone && \
            yum -y install "epel-release" && \
