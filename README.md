@@ -1,12 +1,14 @@
 # Docker Container by zihengCat
 
+[![Build Status](https://travis-ci.com/zihengCat/docker-container-by-zihengcat.svg?branch=master)](https://travis-ci.com/zihengCat/docker-container-by-zihengcat)
+
 Some `Dockerfile` projects written by zihengCat.
 
 # `Dockerfile` Projects
 
 - Docker Apache Airflow
 
-> https://github.com/elastic/elasticsearch
+> https://github.com/apache/incubator-airflow
 
 - Docker ElasticSearch
 
