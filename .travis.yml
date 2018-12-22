@@ -1,0 +1,18 @@
+language: ruby
+# ---------------
+services:
+  - docker
+# ---------------
+before_script:
+    - "bash --version"
+    - "docker --version"
+# ---------------
+script:
+    - "bash travis_ci.sh"
+# ---------------
+after_script:
+    - "echo 'Done!'"
+# ---------------
+#branches:
+#    only:
+#        - "master"
