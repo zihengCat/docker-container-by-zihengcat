@@ -1,7 +1,7 @@
 #!/bin/bash
 # ---------
 ROOT_PATH=$(pwd)
-DOCKER_AUTHOR='ziheng'
+DOCKER_AUTHOR='zihengCat'
 # ---------
 function main() {
     for e in $(ls | grep -E 'docker.+')
