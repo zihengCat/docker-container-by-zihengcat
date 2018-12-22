@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # ---------------------------
 import os
 from datetime import datetime, timedelta
@@ -15,7 +16,7 @@ default_args_by_ziheng = {
     'email': None,
     'email_on_failure': False,
     'email_on_retry': False,
-    'retry_delay': timedelta(minutes=1),
+    'retry_delay': timedelta(minutes = 1),
     'retries': 0,
     #'schedule_interval': None,
     #'queue': 'bash_queue',
@@ -23,12 +24,10 @@ default_args_by_ziheng = {
     #'priority_weight': 10,
     #'end_date': datetime(2016, 1, 1),
 }
-# ----------
-# ** NOTE **
-# ----------
-# USE `variable` AFTER `initdb` OR `resetdb`
+# ------------------------------------------
+# USE `Variable` AFTER `initdb` OR `resetdb`
 # Set `TEST_VARIABLE` from Web UI or CLI
-# -------------------------
+# ------------------------------------------
 task_var = "Default_Task_Variable"
 # -------------------------
 #task_var = Variable.get("TEST_VARIABLE")
