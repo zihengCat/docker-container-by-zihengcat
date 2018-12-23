@@ -1,6 +1,8 @@
-# ----------------------------------------------------
-# `Dockerfile_Redis_Commander` written by `zihengCat`.
-# ----------------------------------------------------
+# -----------------------------
+#  Dockerfile - Redis Commander
+#  Author: zihengCat
+#  Version: 1.0.0
+# -----------------------------
 # =============================
 # Using Base OS CentOS 7 Latest
 # =============================
@@ -17,10 +19,10 @@ ENV        LANG     en_US.UTF-8
 ENV        LANGUAGE en_US.UTF-8
 ENV        LC_ALL   en_US.UTF-8
 # ----------------------------------
-ENV 	   NPM_MIRROR_URL="https://registry.npm.taobao.org/"
 ENV 	   CONFIG_FILE="start.sh"
+ENV 	   NPM_MIRROR_URL="https://registry.npm.taobao.org/"
 # =====================================================
-# 1. Setting TimeZone
+# 1. Setting TimeZone(UTC+8)
 # 2. Install EPEL Yum Repo
 # 3. Install `Node.js` from EPEL Yum Repo
 # 4. Install `redis-commander` from NPM Repo
