@@ -1,6 +1,8 @@
-# -----------------------------------------
-# `Dockerfile_MariaDB` written by zihengCat
-# -----------------------------------------
+# -------------------------------
+#  Dockerfile - MariaDB(CentOS-7)
+#  Author: zihengCat
+#  Version: 1.0.0
+# -------------------------------
 # =============================
 # Using Base OS CentOS 7 Latest
 # =============================
@@ -21,8 +23,8 @@ ENV        PKG_BASE_DEPS="mariadb \
                           mariadb-devel \
                           mariadb-server"
 # =========================================================
-# 1. Setting TimeZone
-# 2. Install MariaDB
+# 1. Setting TimeZone(UTC+8)
+# 2. Install MariaDB 5.5.60
 # 3. Clean Caches
 # =========================================================
 RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
