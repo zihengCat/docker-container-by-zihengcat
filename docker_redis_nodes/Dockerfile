@@ -1,6 +1,11 @@
-# ---------------------------------------
-# `Dockerfile_Redis` written by zihengCat
-# ---------------------------------------
+# -------------------------
+#  Dockerfile - Redis Nodes
+#  Author: zihengCat
+#  Version: 1.0.0
+# -------------------------
+# =============================
+# Using Base OS CentOS 7 Latest
+# =============================
 FROM       docker.io/centos:latest
 # ==========================
 # MAINTAINER is `deprecated`
