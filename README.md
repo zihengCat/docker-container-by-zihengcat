@@ -10,6 +10,10 @@ Some `Dockerfile` projects written by zihengCat.
 
 > https://github.com/apache/incubator-airflow
 
+- Docker Apache Hadoop
+
+> https://github.com/apache/hadoop
+
 - Docker ElasticSearch
 
 > https://github.com/elastic/elasticsearch
