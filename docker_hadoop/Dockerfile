@@ -20,6 +20,7 @@ ENV        LANGUAGE en_US.UTF-8
 ENV        LC_ALL   en_US.UTF-8
 # ----------------------------------
 ENV        PKG_BASE_DEPS="java-1.8.0-openjdk-devel \
+                          which \
                           rsync \
                           openssh \
                           openssh-clients \
