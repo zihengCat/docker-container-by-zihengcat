@@ -19,8 +19,7 @@ ENV        LANG     en_US.UTF-8
 ENV        LANGUAGE en_US.UTF-8
 ENV        LC_ALL   en_US.UTF-8
 # ----------------------------------
-#                        "java-1.8.0-openjdk"
-ENV        PKG_BASE_DEPS="java-11-openjdk-headless \
+ENV        PKG_BASE_DEPS="java-1.8.0-openjdk-headless \
                           rsync \
                           openssh \
                           openssh-clients \
@@ -30,7 +29,7 @@ ENV        PKG_MIRROR_URL="http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/com
 #ENV        HADOOP_CONFIG="hadoop_config"
 # ===============================================
 # 1. Setting TimeZone(UTC+8)
-# 2. Install System Level Libraries
+# 2. Install System Level Libraries and OpenJDK
 # 3. Add User `hadoop`
 # 4. Download `Hadoop-X.Y.Z.tar.gz` to Container
 # 5. Copy Hadoop Configurations to Container
@@ -39,7 +38,7 @@ RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            echo "Asia/Shanghai" > /etc/timezone && \
            yum -y install ${PKG_BASE_DEPS} && \
            useradd "hadoop" && \
-           curl -o "/hadoop/hadoop-2.9.2.tar.gz" ${PKG_MIRROR_URL} && \
+           curl -o "/home/hadoop/hadoop-2.9.2.tar.gz" ${PKG_MIRROR_URL} && \
            yum clean all
 # ----------------------------------
 #COPY       ${HADOOP_CONFIG} /root/
