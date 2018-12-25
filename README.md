@@ -26,6 +26,10 @@ Some `Dockerfile` projects written by zihengCat.
 
 > https://github.com/jenkinsci/jenkins
 
+- Docker Nginx
+
+> https://github.com/nginx/nginx
+
 - Docker MariaDB
 
 > https://github.com/MariaDB/server
