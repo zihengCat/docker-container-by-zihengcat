@@ -3,9 +3,9 @@
 #  Author: zihengCat
 #  Version: 1.0.0
 # ----------------------------
-# =============================
-# Using Base OS CentOS 7 Latest
-# =============================
+# ================================
+# Using Base OS -> CentOS 7 Latest
+# ================================
 FROM       docker.io/centos:latest
 # ==========================
 # MAINTAINER is `deprecated`
@@ -15,9 +15,9 @@ LABEL      maintainer "zihengCat"
 # ==================================
 # Environment Variables Substitution
 # ==================================
-ENV        LANG     en_US.UTF-8
-ENV        LANGUAGE en_US.UTF-8
-ENV        LC_ALL   en_US.UTF-8
+#ENV        LANG     en_US.UTF-8
+#ENV        LANGUAGE en_US.UTF-8
+#ENV        LC_ALL   en_US.UTF-8
 # ----------------------------------------------
 # ** Old MariaDB 5.5.56 Versions (deprecated) **
 # ----------------------------------------------
@@ -26,13 +26,13 @@ ENV        LC_ALL   en_US.UTF-8
 # mariadb-devel-5.5.56-2.el7.x86_64
 # mariadb-server-5.5.56-2.el7.x86_64
 # ----------------------------------------------
-ENV        PKG_BASE_DEPS="epel-release \
-                          python36 python36-devel \
-                          mariadb mariadb-libs mariadb-server mariadb-devel \
-                          redis \
-                          gcc gcc-c++ \
-                          git openssh-clients sshpass screen"
-# ----------------------------------
+#ENV        PKG_BASE_DEPS="epel-release \
+#                          python36 python36-devel \
+#                          mariadb mariadb-libs mariadb-server mariadb-devel \
+#                          redis \
+#                          gcc gcc-c++ \
+#                          git openssh-clients sshpass screen"
+# ----------------------------------------------
 #ENV        PKG_AIRFLOW="apache-airflow[crypto,password,mysql,redis,celery]==1.9.0"
 #ENV        PIP_MIRROR_URL="https://mirrors.aliyun.com/pypi/simple/"
 # ================================================================
@@ -41,7 +41,13 @@ ENV        PKG_BASE_DEPS="epel-release \
 # 4. Install `apache-airflow[*]==1.9.0`
 # 3. Clean Caches
 # ================================================================
-RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
+RUN        PKG_BASE_DEPS="epel-release \
+                          python36 python36-devel \
+                          mariadb mariadb-libs mariadb-server mariadb-devel \
+                          redis \
+                          gcc gcc-c++ \
+                          git openssh-clients sshpass screen" && \
+           cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            echo "Asia/Shanghai" > "/etc/timezone" && \
            yum -y install "epel-release" && \
            yum -y install ${PKG_BASE_DEPS} && \
