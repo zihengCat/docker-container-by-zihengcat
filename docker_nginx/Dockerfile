@@ -60,7 +60,7 @@ RUN        PKG_BASE_DEPS="gcc make \
            tar -xvz -f ${NGINX_PKG_PATH} && \
            mkdir ${NGINX_PKG_PREFIX} && \
            cd ${NGINX_PKG_ROOT} && \
-           sh configure --prefix=/opt/nginx_1.14.2/ \
+           sh configure --prefix=${NGINX_PKG_PREFIX} \
                         --with-select_module \
                         --with-poll_module \
                         --with-threads \
@@ -95,7 +95,8 @@ RUN        PKG_BASE_DEPS="gcc make \
                         --with-stream_ssl_module \
                         --with-stream_realip_module \
                         --with-stream_geoip_module \
-                        --with-stream_ssl_preread_module && \
+                        --with-stream_ssl_preread_module \
+                        --with-cc-opt='-O3 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic' && \
            make && make install && \
            yum clean all
 # ===============================
