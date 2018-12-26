@@ -1,11 +1,11 @@
-# -------------------------------
+# --------------------------------
 #  Dockerfile - Nginx
 #  Author: zihengCat
 #  Version: 1.0.0
-# -------------------------------
-# =============================
-# Using Base OS CentOS 7 Latest
-# =============================
+# --------------------------------
+# ================================
+# Using Base OS -> CentOS 7 Latest
+# ================================
 FROM       docker.io/centos:latest
 # ==========================
 # MAINTAINER is `deprecated`
@@ -35,7 +35,7 @@ LABEL      maintainer "zihengCat"
 #ENV        NGINX_PKG_URL="http://nginx.org/download/nginx-1.14.2.tar.gz"
 # =========================================================
 # 1. Setting TimeZone(UTC+8)
-# 2. Install System Level Packages
+# 2. Install System level dependent Packages
 # 3. Download `nginx-X.Y.Z.tar.gz` to Container
 # 3. Clean Caches
 # =========================================================
