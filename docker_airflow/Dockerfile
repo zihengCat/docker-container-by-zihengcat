@@ -31,7 +31,7 @@ LABEL      maintainer "zihengCat"
 #                          mariadb mariadb-libs mariadb-server mariadb-devel \
 #                          redis \
 #                          gcc gcc-c++ \
-#                          git openssh-clients sshpass screen"
+#                          git openssh-clients sshpass screen supervisor"
 # ----------------------------------------------
 #ENV        PKG_AIRFLOW="apache-airflow[crypto,password,mysql,redis,celery]==1.9.0"
 #ENV        PIP_MIRROR_URL="https://mirrors.aliyun.com/pypi/simple/"
@@ -46,12 +46,20 @@ RUN        PKG_BASE_DEPS="epel-release \
                           mariadb mariadb-libs mariadb-server mariadb-devel \
                           redis \
                           gcc gcc-c++ \
-                          git openssh-clients sshpass screen" && \
+                          git openssh-clients sshpass screen supervisor" && \
            cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            echo "Asia/Shanghai" > "/etc/timezone" && \
            yum -y install "epel-release" && \
            yum -y install ${PKG_BASE_DEPS} && \
            yum clean all
+# ===============================
+# - 8080 -> airflow webserver
+# - 8793 -> airflow worker
+# - 5555 -> airflow flower
+# ===============================
+#EXPOSE 8080
+#EXPOSE 8793
+#EXPOSE 5555
 # ===============================
 WORKDIR    /root/
 # ===============================
