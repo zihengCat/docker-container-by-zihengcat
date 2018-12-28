@@ -47,10 +47,16 @@ RUN        PKG_BASE_DEPS="epel-release \
                           redis \
                           gcc gcc-c++ \
                           git openssh-clients sshpass screen supervisor" && \
+           PKG_AIRFLOW="apache-airflow[crypto,password,mysql,redis,celery]==1.9.0" && \
+           PIP_MIRROR_URL="https://mirrors.aliyun.com/pypi/simple/" && \
            cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            echo "Asia/Shanghai" > "/etc/timezone" && \
            yum -y install "epel-release" && \
            yum -y install ${PKG_BASE_DEPS} && \
+           python36 -m venv /root/airflow_py3/ && cd /root/airflow_py3/ && \
+           source bin/activate && \
+           pip install ${PKG_AIRFLOW} -i ${PIP_MIRROR_URL} --no-cache-dir && \
+           deactivate && \
            yum clean all
 # ===============================
 # - 8080 -> airflow webserver
