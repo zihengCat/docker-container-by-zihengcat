@@ -9,10 +9,12 @@
 FROM       docker.io/centos:latest
 # ==========================
 # MAINTAINER is `deprecated`
-# LABEL following standard set of labels by
-# The Open Containers Initiative (OCI)
 # ==========================
 #MAINTAINER zihengCat
+# =============================================
+# LABEL following the standard set of labels by
+# The Open Containers Initiative (OCI)
+# =============================================
 LABEL      org.opencontainers.image.title="DockerImage - Apache Airflow" \
            org.opencontainers.image.description="A docker image contains Apache Airflow with dependents based on CentOS 7 Linux." \
            org.opencontainers.image.authors="zihengCat" \

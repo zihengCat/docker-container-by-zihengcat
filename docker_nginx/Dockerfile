@@ -11,7 +11,16 @@ FROM       docker.io/centos:latest
 # MAINTAINER is `deprecated`
 # ==========================
 #MAINTAINER zihengCat
-LABEL      maintainer "zihengCat"
+# =============================================
+# LABEL following the standard set of labels by
+# The Open Containers Initiative (OCI)
+# =============================================
+LABEL      org.opencontainers.image.title="DockerImage - Nginx" \
+           org.opencontainers.image.description="A docker image contains latest compiled Nginx based on CentOS 7 Linux." \
+           org.opencontainers.image.authors="zihengCat" \
+           org.opencontainers.image.version="1.0.0" \
+           org.opencontainers.image.licenses="MIT" \
+           org.opencontainers.image.url="https://github.com/zihengCat/docker-container-by-zihengcat"
 # ==================================
 # Environment Variables Substitution
 # ==================================
@@ -33,12 +42,14 @@ LABEL      maintainer "zihengCat"
 #ENV        NGINX_PKG_ROOT="/root/nginx-1.14.2"
 #ENV        NGINX_PKG_PATH="/root/nginx-1.14.2.tar.gz"
 #ENV        NGINX_PKG_URL="http://nginx.org/download/nginx-1.14.2.tar.gz"
-# =========================================================
+# ====================================================
 # 1. Setting TimeZone(UTC+8)
-# 2. Install System level dependent Packages
-# 3. Download `nginx-X.Y.Z.tar.gz` to Container
-# 3. Clean Caches
-# =========================================================
+# 2. Install system level nginx dependent packages
+# 3. Download latest `nginx-X.Y.Z.tar.gz` to container
+# >> http://nginx.org/
+# 4. Compile nginx
+# 5. Clean caches
+# ====================================================
 RUN        PKG_BASE_DEPS="gcc make \
                           pcre pcre-devel \
                           zlib zlib-devel \
