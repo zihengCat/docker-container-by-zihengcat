@@ -3,24 +3,33 @@
 #  Author: zihengCat
 #  Version: 1.0.0
 # -----------------------------
-# =============================
-# Using Base OS CentOS 7 Latest
-# =============================
+# ================================
+# Using Base OS -> CentOS 7 Latest
+# ================================
 FROM       docker.io/centos:latest
 # ==========================
 # MAINTAINER is `deprecated`
 # ==========================
 #MAINTAINER zihengCat
-LABEL      maintainer "zihengCat"
+# =============================================
+# LABEL following the standard set of labels by
+# The Open Containers Initiative (OCI)
+# =============================================
+LABEL      org.opencontainers.image.title="DockerImage - Redis Commander" \
+           org.opencontainers.image.description="A docker image contains redis-commander with dependents based on CentOS 7 Linux." \
+           org.opencontainers.image.authors="zihengCat" \
+           org.opencontainers.image.version="1.0.0" \
+           org.opencontainers.image.licenses="MIT" \
+           org.opencontainers.image.url="https://github.com/zihengCat/docker-container-by-zihengcat"
 # ==================================
 # Environment Variables Substitution
 # ==================================
-ENV        LANG     en_US.UTF-8
-ENV        LANGUAGE en_US.UTF-8
-ENV        LC_ALL   en_US.UTF-8
+#ENV        LANG     en_US.UTF-8
+#ENV        LANGUAGE en_US.UTF-8
+#ENV        LC_ALL   en_US.UTF-8
 # ----------------------------------
-ENV 	   CONFIG_FILE="start.sh"
-ENV 	   NPM_MIRROR_URL="https://registry.npm.taobao.org/"
+ARG 	   CONFIG_FILE="start.sh"
+#ENV 	   NPM_MIRROR_URL="https://registry.npm.taobao.org/"
 # =====================================================
 # 1. Setting TimeZone(UTC+8)
 # 2. Install EPEL Yum Repo
@@ -34,7 +43,8 @@ ENV 	   NPM_MIRROR_URL="https://registry.npm.taobao.org/"
 # Using `redis-commander@0.4.5`
 # rather than the latest version.
 # =====================================================
-RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
+RUN        NPM_MIRROR_URL="https://registry.npm.taobao.org/" && \
+           cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            echo "Asia/Shanghai" > /etc/timezone && \
            yum -y install "epel-release" && \
            yum -y install "nodejs" && \
@@ -45,6 +55,8 @@ RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            npm cache clean
 # ----------------------------------
 COPY       ${CONFIG_FILE} /root/
+# ===============================
+#EXPOSE     8081
 # ===============================
 WORKDIR    /root/
 # ===============================
