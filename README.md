@@ -10,6 +10,10 @@ Some `Dockerfile` projects written by zihengCat.
 
 > https://github.com/apache/incubator-airflow
 
+- Docker Apache Superset
+
+> https://github.com/apache/incubator-superset
+
 - Docker Apache Hadoop
 
 > https://github.com/apache/hadoop
@@ -34,11 +38,7 @@ Some `Dockerfile` projects written by zihengCat.
 
 > https://github.com/MariaDB/server
 
-- Docker Redis Nodes
-
-> https://github.com/antirez/redis
-
-- Docker Redis Cluster
+- Docker Redis
 
 > https://github.com/antirez/redis
 
