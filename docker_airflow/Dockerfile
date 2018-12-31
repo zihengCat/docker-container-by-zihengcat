@@ -76,6 +76,6 @@ RUN        PKG_BASE_DEPS="epel-release \
 #EXPOSE 8793
 #EXPOSE 5555
 # ===============================
-WORKDIR    /root/
+#WORKDIR    /root/
 # ===============================
 # EOF
