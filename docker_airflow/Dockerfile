@@ -16,7 +16,7 @@ FROM       docker.io/centos:latest
 # The Open Containers Initiative (OCI)
 # =============================================
 LABEL      org.opencontainers.image.title="DockerImage - Apache Airflow" \
-           org.opencontainers.image.description="A docker image contains Apache Airflow with dependents based on CentOS 7 Linux." \
+           org.opencontainers.image.description="A docker image contains Apache Airflow with dependencies based on CentOS 7 Linux." \
            org.opencontainers.image.authors="zihengCat" \
            org.opencontainers.image.version="1.0.0" \
            org.opencontainers.image.licenses="MIT" \
@@ -62,7 +62,7 @@ RUN        PKG_BASE_DEPS="epel-release \
            echo "Asia/Shanghai" > "/etc/timezone" && \
            yum -y install "epel-release" && \
            yum -y install ${PKG_BASE_DEPS} && \
-           python36 -m venv /root/airflow_py3/ && cd /root/airflow_py3/ && \
+           python36 -m venv "/root/airflow_py3/" && cd "/root/airflow_py3/" && \
            source bin/activate && \
            pip install ${PKG_AIRFLOW} -i ${PIP_MIRROR_URL} --no-cache-dir && \
            deactivate && \

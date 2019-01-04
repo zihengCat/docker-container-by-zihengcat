@@ -44,6 +44,6 @@ RUN        PKG_BASE_DEPS="mariadb \
            yum -y install ${PKG_BASE_DEPS} && \
            yum clean all
 # ===============================
-WORKDIR    /root/
+#WORKDIR    /root/
 # ===============================
 # EOF
