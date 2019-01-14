@@ -29,8 +29,9 @@ LABEL      org.opencontainers.image.title="DockerImage - Odoo" \
 #ENV        LC_ALL   en_US.UTF-8
 # =========================================================
 # 1. Setting TimeZone(UTC+8)
-# 2. Install ...
-# 3. Clean Caches
+# 2. Install Python, Node.JS, GCC...
+# 3. Download `odoo_11.tar.gz` source tarball
+# 3. Clean caches
 # =========================================================
 RUN        PKG_BASE_DEPS="epel-release \
                           python36-devel \
@@ -46,7 +47,8 @@ RUN        PKG_BASE_DEPS="epel-release \
            yum -y install "epel-release" && \
            yum -y install ${PKG_BASE_DEPS} && \
            cd "/root/" && curl -O ${ODOO_11_PKG} && \
-           yum clean all
+           yum clean all && \
+           useradd "odoo"
 # ===============================
 # - 8069 -> Odoo
 # - 5432 -> PostgreSQL
@@ -54,6 +56,7 @@ RUN        PKG_BASE_DEPS="epel-release \
 #EXPOSE 8069
 #EXPOSE 5432
 # ===============================
-#WORKDIR    /root/
+#USER       odoo
+#WORKDIR    /home/odoo/
 # ===============================
 # EOF
