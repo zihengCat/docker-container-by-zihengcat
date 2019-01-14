@@ -46,6 +46,10 @@ Some `Dockerfile` projects written by zihengCat.
 
 > https://github.com/joeferner/redis-commander
 
+- Docker Odoo
+
+> https://github.com/odoo/odoo
+
 # License
 
 [MIT](./LICENSE)
