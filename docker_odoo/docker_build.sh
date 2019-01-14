@@ -1,1 +1,1 @@
-sudo docker build -t ziheng/centos:mariadb .
+sudo docker build -t ziheng/centos:odoo .
