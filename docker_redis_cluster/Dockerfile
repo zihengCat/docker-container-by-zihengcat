@@ -32,6 +32,6 @@ RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            cp -r /root/redis-5.0.2/ /opt/redis_5.0.2/ && \
 COPY       redis_cluster /root/redis_cluster
 # ==================================
-WORKDIR    /root/
+#WORKDIR    /root/
 # ==================================
 # EOF

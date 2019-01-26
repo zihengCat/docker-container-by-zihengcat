@@ -42,12 +42,16 @@ RUN        PKG_BASE_DEPS="epel-release \
                           openldap-devel \
                           postgresql*" && \
            ODOO_11_PKG="https://nightly.odoocdn.com/11.0/nightly/src/odoo_11.0.latest.tar.gz" && \
+           NPM_MIRROR_URL="https://registry.npm.taobao.org/" && \
            cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            echo "Asia/Shanghai" > "/etc/timezone" && \
            yum -y install "epel-release" && \
            yum -y install ${PKG_BASE_DEPS} && \
-           cd "/root/" && curl -O ${ODOO_11_PKG} && \
+           npm --registry ${NPM_MIRROR_URL} \
+                 install "redis-commander@0.4.5" && \
            yum clean all && \
+           npm cache clean && \
+           cd "/root/" && curl -O ${ODOO_11_PKG} && \
            useradd "odoo"
 # ===============================
 # - 8069 -> Odoo

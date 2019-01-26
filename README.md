@@ -18,7 +18,7 @@ Some `Dockerfile` projects written by zihengCat.
 
 > https://github.com/apache/hadoop
 
-- Docker ElasticSearch
+- Docker Elasticsearch
 
 > https://github.com/elastic/elasticsearch
 
@@ -49,6 +49,10 @@ Some `Dockerfile` projects written by zihengCat.
 - Docker Odoo
 
 > https://github.com/odoo/odoo
+
+- Docker Redash
+
+> https://github.com/getredash/redash
 
 # License
 
