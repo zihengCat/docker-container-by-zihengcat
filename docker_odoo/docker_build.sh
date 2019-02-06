@@ -1,1 +1,1 @@
-sudo docker build -t ziheng/centos:odoo .
+sudo docker build -t ziheng/centos:odoo11 .
