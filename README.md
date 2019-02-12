@@ -22,6 +22,10 @@ Some `Dockerfile` projects written by zihengCat.
 
 > https://github.com/elastic/elasticsearch
 
+- Docker Hue
+
+> https://github.com/cloudera/hue
+
 - Docker Kibana
 
 > https://github.com/elastic/kibana
