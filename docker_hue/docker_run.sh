@@ -1,7 +1,7 @@
 #!/bin/bash
-# ---------------------
-# 8000 -> Hue webserver
-# ---------------------
+# -----------------------
+# - 8000 -> Hue Webserver
+# -----------------------
 sudo docker run -d -i -t \
                 --env LC_ALL=en_US.UTF-8 \
                 --name hue \

@@ -1,8 +1,8 @@
-# ----------------------------
+# ------------------
 #  Dockerfile - Hue
 #  Author: zihengCat
 #  Version: 1.0.0
-# ----------------------------
+# ------------------
 # ================================
 # Using Base OS -> CentOS 7 Latest
 # ================================
@@ -34,11 +34,11 @@ LABEL      org.opencontainers.image.title="DockerImage - Hue" \
 # 4. Clean caches
 # ================================================================
 RUN        PKG_BASE_DEPS="ant asciidoc \
-                          cyrus-sasl-devel cyrus-sasl-gssapi cyrus-sasl-plain \
                           make git gcc gcc-c++ \
+                          cyrus-sasl-devel cyrus-sasl-gssapi cyrus-sasl-plain \
                           krb5-devel libffi-devel libxml2-devel libxslt-devel \
                           mysql mysql-devel openldap-devel python-devel \
-                          sqlite-devel gmp-devel openssl-devel \
+                          libyaml-devel sqlite-devel gmp-devel openssl-devel \
                           jtidy" && \
            APACHE_MAVEN_PKG="http://mirrors.shu.edu.cn/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz" && \
            CLOUDERA_HUE_PKG="https://codeload.github.com/cloudera/hue/tar.gz/release-4.3.0" && \
@@ -47,6 +47,7 @@ RUN        PKG_BASE_DEPS="ant asciidoc \
            yum -y install ${PKG_BASE_DEPS} && \
            echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64" \
            >> "/root/.bash_profile" && \
+           useradd "hue" && \
            cd "/root" && \
            curl -o "maven_3.6.0.tar.gz" ${APACHE_MAVEN_PKG} && \
            curl -o "hue_4.3.0.tar.gz"   ${CLOUDERA_HUE_PKG} && \
