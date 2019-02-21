@@ -58,6 +58,7 @@ RUN        PKG_BASE_DEPS="epel-release \
            yum -y install ${PKG_BASE_DEPS} && \
            npm --registry ${NPM_MIRROR_URL} \
                  install -g "less" && \
+           git clone "https://github.com/odoo/odoo.git" -b 11.0 --depth=1 && \
            npm cache clean && \
            yum clean all && \
            cd "/root/" && curl -O ${ODOO_11_PKG} && \
