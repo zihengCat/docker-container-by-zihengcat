@@ -8,7 +8,7 @@ Some `Dockerfile` projects written by zihengCat.
 
 - Docker Apache Airflow
 
-> https://github.com/apache/incubator-airflow
+> https://github.com/apache/airflow
 
 - Docker Apache Superset
 
@@ -42,6 +42,10 @@ Some `Dockerfile` projects written by zihengCat.
 
 > https://github.com/MariaDB/server
 
+- Docker PostgreSQL
+
+> https://github.com/postgres/postgres
+
 - Docker Redis
 
 > https://github.com/antirez/redis
@@ -50,13 +54,13 @@ Some `Dockerfile` projects written by zihengCat.
 
 > https://github.com/joeferner/redis-commander
 
-- Docker Odoo
-
-> https://github.com/odoo/odoo
-
 - Docker Redash
 
 > https://github.com/getredash/redash
+
+- Docker Odoo
+
+> https://github.com/odoo/odoo
 
 # License
 
