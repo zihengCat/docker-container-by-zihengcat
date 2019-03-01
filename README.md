@@ -18,13 +18,17 @@ Some `Dockerfile` projects written by zihengCat.
 
 > https://github.com/apache/hadoop
 
+- Docker Cerebro
+
+> https://github.com/lmenezes/cerebro
+
+- Docker Cloudera Hue
+
+> https://github.com/cloudera/hue
+
 - Docker Elasticsearch
 
 > https://github.com/elastic/elasticsearch
-
-- Docker Hue
-
-> https://github.com/cloudera/hue
 
 - Docker Kibana
 
