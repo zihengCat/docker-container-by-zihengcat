@@ -43,6 +43,7 @@ RUN        PKG_BASE_DEPS="java-11-openjdk-devel \
            cd /root && \
            wget ${PKG_MIRROR_URL} && \
            tar -xvz -f ${PKG_NAME} && \
+           chown -R root:root ./cerebro-0.8.1 && \
            rm -rf ${PKG_NAME} && \
            yum clean all
 # ----------------------------------
@@ -51,6 +52,6 @@ RUN        PKG_BASE_DEPS="java-11-openjdk-devel \
 #WORKDIR    /root/
 #USER       cerebro
 #EXPOSE     9900
-#CMD        ["java", "-Duser.dir=/root/cerebro-0.8.1", "-Dhttp.port=9900", "-Dhttp.address=0.0.0.0", "-cp", "-jar", "/root/cerebro-0.8.1/lib/cerebro.cerebro-0.8.1-launcher.jar"]
+#CMD        ["java", "-Duser.dir=/root/cerebro-0.8.1", "-Dconfig.file=/root/cerebro.conf", "-Dhttp.port=9900", "-Dhttp.address=0.0.0.0", "-cp", "-jar", "/root/cerebro-0.8.1/lib/cerebro.cerebro-0.8.1-launcher.jar"]
 # ==================================
 # EOF

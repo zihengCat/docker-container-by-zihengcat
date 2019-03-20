@@ -1,8 +1,8 @@
-# ---------------------------
-#  Dockerfile - PostgreSQL 11
+# ------------------------
+#  Dockerfile - PostgreSQL
 #  Author: zihengCat
 #  Version: 1.0.0
-# ---------------------------
+# ------------------------
 # ================================
 # Using Base OS -> CentOS 7 Latest
 # ================================
@@ -15,8 +15,8 @@ FROM       docker.io/centos:latest
 # LABEL following the standard set of labels by
 # The Open Containers Initiative (OCI)
 # =============================================
-LABEL      org.opencontainers.image.title="DockerImage - PostgreSQL 11" \
-           org.opencontainers.image.description="A docker image contains PostgreSQL 11 build from source based on CentOS 7 Linux." \
+LABEL      org.opencontainers.image.title="DockerImage - PostgreSQL" \
+           org.opencontainers.image.description="A docker image contains PostgreSQL build from source based on CentOS 7 Linux." \
            org.opencontainers.image.authors="zihengCat" \
            org.opencontainers.image.version="1.0.0" \
            org.opencontainers.image.licenses="MIT" \
@@ -29,18 +29,16 @@ LABEL      org.opencontainers.image.title="DockerImage - PostgreSQL 11" \
 #ENV        LC_ALL   en_US.UTF-8
 # =================================================
 # 1. Setting TimeZone(UTC+8)
-# 2. Install PostgreSQL 11
+# 2. Install PostgreSQL
 # 3. Clean caches
 # -------------------------------------------------
 # ** Old PostgreSQL 9.2.24 Versions (deprecated) **
 # -------------------------------------------------
 # - postgresql*
 # =================================================
-RUN        PKG_BASE_DEPS="postgresql11 postgresql11-server" && \
-           PG11_URL_DEPS="https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-redhat11-11-2.noarch.rpm" && \
+RUN        PKG_BASE_DEPS="postgresql*" && \
            cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
            echo "Asia/Shanghai" > "/etc/timezone" && \
-           yum -y install ${PG11_URL_DEPS} && \
            yum -y install ${PKG_BASE_DEPS} && \
            yum clean all
 # ====================
