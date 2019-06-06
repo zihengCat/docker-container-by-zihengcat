@@ -61,7 +61,13 @@ RUN        PKG_BASE_DEPS="epel-release \
            rm -rf ${REDIS_PKG_ROOT} ${REDIS_PKG_PATH} && \
            yum -y autoremove ${PKG_BASE_DEPS} && \
            yum clean all
-# ===============================
+# ======================================
 #WORKDIR    /root/
-# ===============================
+# ======================================
+# Using a Docker `entrypoint.sh`
+# ======================================
+COPY ./entrypoint.sh /root/
+# ======================================
+ENTRYPOINT ["sh", "/root/entrypoint.sh"]
+# ======================================
 # EOF
