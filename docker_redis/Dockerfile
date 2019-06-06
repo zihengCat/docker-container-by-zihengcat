@@ -27,17 +27,19 @@ LABEL      org.opencontainers.image.title="DockerImage - Redis" \
 #ENV        LANG     en_US.UTF-8
 #ENV        LANGUAGE en_US.UTF-8
 #ENV        LC_ALL   en_US.UTF-8
-# =================================================
-# 1. Setting TimeZone(UTC+8)
-# 2. Install system level Redis dependent libraries
+# ==============================================================
+# # Step 1. Setting TimeZone(UTC+8)
+# # Step 2. Install system level Redis dependent libraries
 # > Do not need `jemalloc-devel` because it is
 # > built-in after Redis 5.0.5
-# 3. Using latest stable release Redis package
+# # Step 3. Using latest stable release Redis package
 # > https://redis.io/
-# 4. Compile Redis
-# 5. Clean Caches
-#cp -r ${REDIS_PKG_ROOT} ${REDIS_PKG_INSTALLED} && \
-# =================================================
+# # Step 4. Compile Redis
+# # Step 5. Install Redis
+# > Do not need `cp -r ${REDIS_PKG_ROOT} ${REDIS_PKG_INSTALLED}`
+# > use `make PREFIX=${REDIS_PKG_INSTALLED} install`
+# # Step 6. Clean caches
+# ==============================================================
 RUN        PKG_BASE_DEPS="epel-release \
                           make \
                           gcc \
