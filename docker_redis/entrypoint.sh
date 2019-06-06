@@ -9,5 +9,5 @@ REDIS_OPTIONS=''
 
 if [[ "${1}" != '' ]]
 then
-    ${REDIS_PATH}/${REDIS_CMD} ${!}
+    ${REDIS_PATH}/${REDIS_CMD} "${@}"
 fi
