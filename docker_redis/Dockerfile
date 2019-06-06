@@ -27,26 +27,21 @@ LABEL      org.opencontainers.image.title="DockerImage - Redis" \
 #ENV        LANG     en_US.UTF-8
 #ENV        LANGUAGE en_US.UTF-8
 #ENV        LC_ALL   en_US.UTF-8
-# ----------------------------------
-#ENV        PKG_BASE_DEPS="epel-release \
-#                          make gcc gcc-c++ \
-#                          jemalloc-devel"
-# ----------------------------------
-#ENV        REDIS_PKG_PATH="/root/redis-5.0.3.tar.gz"
-#ENV        REDIS_PKG_ROOT="/root/redis-5.0.3/"
-#ENV        REDIS_PKG_INSTALLED="/opt/redis_5.0.3/"
-#ENV        REDIS_PKG_URL="http://download.redis.io/releases/redis-5.0.3.tar.gz"
 # =================================================
 # 1. Setting TimeZone(UTC+8)
 # 2. Install system level Redis dependent libraries
+# > Do not need `jemalloc-devel` because it is
+# > built-in after Redis 5.0.5
 # 3. Using latest stable release Redis package
-# >> https://redis.io/
+# > https://redis.io/
 # 4. Compile Redis
 # 5. Clean Caches
+#cp -r ${REDIS_PKG_ROOT} ${REDIS_PKG_INSTALLED} && \
 # =================================================
 RUN        PKG_BASE_DEPS="epel-release \
-                          make gcc gcc-c++ \
-                          jemalloc-devel" && \
+                          make \
+                          gcc \
+                          gcc-c++" && \
            REDIS_PKG_PATH="/root/redis-5.0.5.tar.gz" && \
            REDIS_PKG_ROOT="/root/redis-5.0.5/" && \
            REDIS_PKG_INSTALLED="/opt/redis_5.0.5/" && \
@@ -59,8 +54,8 @@ RUN        PKG_BASE_DEPS="epel-release \
            cd "/root/" && \
            tar -xvz -f ${REDIS_PKG_PATH} && \
            cd ${REDIS_PKG_ROOT} && \
-           make && \
-           cp -r ${REDIS_PKG_ROOT} ${REDIS_PKG_INSTALLED} && \
+           make V=1 && \
+           make PREFIX=${REDIS_PKG_INSTALLED} install && \
            rm -rf ${REDIS_PKG_ROOT} ${REDIS_PKG_PATH} && \
            yum -y autoremove ${PKG_BASE_DEPS} && \
            yum clean all
