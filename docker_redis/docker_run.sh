@@ -23,3 +23,4 @@ sudo docker run -d -i -t \
                 ${REDIS_OPTIONS}
 #/usr/sbin/init
 # ------------------------------
+# EOF
