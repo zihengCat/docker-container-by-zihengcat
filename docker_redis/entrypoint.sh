@@ -2,16 +2,25 @@
 # -------------------------------
 set -e
 # -------------------------------
+REDIS_FLAG=false
 REDIS_PATH='/opt/redis_5.0.5/bin'
-REDIS_CMD='redis-server'
-REDIS_CONF='/root/redis.conf'
-REDIS_OPTIONS=''
+REDIS_COMMANDS="redis-cli \
+                redis-server"
 # -------------------------------
-if [[ "${1}" != "" ]]
+for redis_cmd in ${REDIS_COMMANDS}
+do
+    if [[ ${1} == ${redis_cmd} ]]
+    then
+        REDIS_FLAG=true
+    fi
+done
+# -------------------------------
+if [[ ${REDIS_FLAG} == true ]]
 then
-    ${REDIS_PATH}/${@}
+    echo 'OK!'
+    #${REDIS_PATH}/${@}
 else
-    echo '[ERROR]: No redis commands...'
+    echo '[ERROR]: No such Redis command...'
     exit 1
 fi
 # -------------------------------
