@@ -50,6 +50,10 @@ Some `Dockerfile` projects written by zihengCat.
 
 > https://github.com/postgres/postgres
 
+- Docker Python
+
+> https://github.com/python/cpython
+
 - Docker Redis
 
 > https://github.com/antirez/redis
