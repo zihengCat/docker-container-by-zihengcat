@@ -21,15 +21,15 @@ LABEL       org.opencontainers.image.title="DockerImage - Python 3.6.8" \
             org.opencontainers.image.version="1.0.0" \
             org.opencontainers.image.licenses="MIT" \
             org.opencontainers.image.url="https://github.com/zihengCat/docker-container-by-zihengcat"
-# ==========================================================
+# ======================================================
 # # Step 1. Setting TimeZone(UTC+8)
-# # Step 2. Install system level Python3 dependent libraries
+# # Step 2. Install OS-Level Python3 dependent libraries
 # # Step 3. Using stable released Python3 package
 # > https://www.python.org/
 # # Step 4. Compile Python3
 # # Step 5. Install Python3
 # # Step 6. Clean caches
-# ==========================================================
+# ======================================================
 RUN         PKG_BASE_DEPS="gcc \
                            make \
                            zlib-devel \
@@ -44,7 +44,7 @@ RUN         PKG_BASE_DEPS="gcc \
                            gdbm-devel" && \
             PYTHON_PKG_PATH="/root/Python-3.6.8.tgz" && \
             PYTHON_PKG_ROOT="/root/Python-3.6.8/" && \
-            PYTHIN_PKG_INSTALLED="/opt/python_3.6.8/" && \
+            PYTHON_PKG_INSTALLED="/opt/python_3.6.8/" && \
             PYTHON_PKG_URL="https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz" && \
             cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
             echo "Asia/Shanghai" > "/etc/timezone" && \
@@ -53,9 +53,9 @@ RUN         PKG_BASE_DEPS="gcc \
             cd "/root/" && \
             tar -xvz -f ${PYTHON_PKG_PATH} && \
             cd ${PYTHON_PKG_ROOT} && \
-            mkdir ${PYTHIN_PKG_INSTALLED} && \
+            mkdir ${PYTHON_PKG_INSTALLED} && \
             ./configure \
-                --prefix=${PYTHIN_PKG_INSTALLED} \
+                --prefix=${PYTHON_PKG_INSTALLED} \
                 --enable-optimizations && \
             make && \
             make install && \
