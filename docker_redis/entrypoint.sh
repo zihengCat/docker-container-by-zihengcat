@@ -17,8 +17,8 @@ done
 # -------------------------------
 if [[ ${REDIS_FLAG} == true ]]
 then
-    echo 'OK!'
-    #${REDIS_PATH}/${@}
+    echo 'OK!' && \
+    echo "${REDIS_PATH}/${@}"
 else
     echo '[ERROR]: No such Redis command...'
     exit 1

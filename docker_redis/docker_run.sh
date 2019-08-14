@@ -2,7 +2,7 @@
 # ------------------------------
 REDIS_OPTIONS="--loglevel verbose \
                --bind 0.0.0.0 \
-               --port 6479 \
+               --port 6379 \
                --requirepass foobar123 \
                --maxclients 10000 \
                --timeout 0 \
@@ -18,7 +18,7 @@ REDIS_OPTIONS="--loglevel verbose \
 sudo docker run -d -i -t \
                 --env LC_ALL=en_US.UTF-8 \
                 --name redis \
-                -p 0.0.0.0:6479:6479 \
+                -p 0.0.0.0:6379:6379 \
                 ziheng/centos:redis \
                 ${REDIS_OPTIONS}
 #/usr/sbin/init
