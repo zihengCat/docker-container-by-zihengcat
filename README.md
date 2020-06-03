@@ -6,6 +6,10 @@ Some `Dockerfile` projects written by zihengCat.
 
 # `Dockerfile` Projects
 
+- Docker - Fluent Bit
+
+> https://github.com/fluent/fluent-bit
+
 - Docker Apache Airflow
 
 > https://github.com/apache/airflow
@@ -74,3 +78,4 @@ Some `Dockerfile` projects written by zihengCat.
 
 [MIT](./LICENSE)
 
+<!-- EOF -->
