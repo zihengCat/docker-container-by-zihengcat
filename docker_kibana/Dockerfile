@@ -1,35 +1,36 @@
-# -----------------------------------------------
-# `Dockerfile_Kibana` written by zihengCat
-# -----------------------------------------------
-# =============================
-# Using Base OS CentOS 7 Latest
-# =============================
+# --------------------------
+#  Dockerfile - Kibana
+#  Author: zihengCat
+#  Version: 1.0.0
+# --------------------------
+# ===========================
+# Using Base OS CentOS Latest
+# ===========================
 FROM       docker.io/centos:latest
-# ==========================
-# MAINTAINER is `deprecated`
-# ==========================
-#MAINTAINER zihengCat
-LABEL      maintainer "zihengCat"
+# =============================
+LABEL      org.opencontainers.image.title="DockerImage - Kibana" \
+           org.opencontainers.image.description="A docker image contains Kibana with dependents based on CentOS Linux." \
+           org.opencontainers.image.authors="zihengCat" \
+           org.opencontainers.image.version="1.0.0" \
+           org.opencontainers.image.licenses="MIT" \
+           org.opencontainers.image.url="https://github.com/zihengCat/docker-container-by-zihengcat"
 # ==================================
 # Environment Variables Substitution
 # ==================================
-ENV        LANG     en_US.UTF-8
-ENV        LANGUAGE en_US.UTF-8
-ENV        LC_ALL   en_US.UTF-8
-# ----------------------------------
-#ENV        PKG_BASE_DEPS="java-11-openjdk-headless.x86_64"
-ENV        PKG_MIRROR_URL="https://artifacts.elastic.co/downloads/kibana/kibana-6.5.3-linux-x86_64.tar.gz"
+#ENV        LANG     en_US.UTF-8
+#ENV        LANGUAGE en_US.UTF-8
+#ENV        LC_ALL   en_US.UTF-8
 # =================================================
 # 1. Install Java 11 (OpenJDK 11)
 # 2. Download ElasticSearch `*.tar.gz` to Container
 # =================================================
-RUN        cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" && \
-           echo "Asia/Shanghai" > /etc/timezone && \
-           useradd "elastic" && \
-           curl -o "/home/elastic/kibana-6.5.3-linux-x86_64.tar.gz" ${PKG_MIRROR_URL}
+RUN        PKG_MIRROR_URL="https://artifacts.elastic.co/downloads/kibana/kibana-7.7.1-linux-x86_64.tar.gz" \
+           && cp "/usr/share/zoneinfo/Asia/Shanghai" "/etc/localtime" \
+           && echo "Asia/Shanghai" > /etc/timezone \
+           && useradd "elastic" \
+           && curl -o "/home/elastic/kibana-7.7.1.tar.gz" ${PKG_MIRROR_URL}
 # ===============================
-#USER       elastic
-#WORKDIR    /home/elastic/
-WORKDIR    /root/
+USER       elastic
+WORKDIR    /home/elastic/
 # ===============================
 # EOF
